@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Bazaar</title>
+
+</head>
+
+<body>
+    <div class="bg-light p-2 rounded-lg m-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img class="mx-auto d-block figure-img rounded img-thumbnail" src="{{url_for('static', filename='caju.jpg')}}">
+                </div>
+                <div class="col-10">
+                    <h1 class="display-4 text-left">Caju's Bazaar</h1>
+                    <p class="lead text-left">Caju and his family are moving out of Germany and they have some stuff to sell</p>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+
+
+    </div>
+
+    <div>
+        <div class="container"data-toggle="modal" data-target="#exampleModal">
+            <div class="row">
+                {% for item in items %}
+                    <div class="col mb-2">
+                        <div class="card" style="width: 18rem;">
+                            <a href="{{url_for('static', filename=item.photos[0])}}" target="_blank">
+                                <img class="card-img-top" src="{{url_for('static', filename=item.photos[0])}}">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ item.link }}" target="_blank" >{{ item.title }}</a>
+                                </h5>
+                                <p class="card-text mb-0">price: €{{ item.price }}</p>
+                                <p class="card-text">available at: {{item.available_at }}</p>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

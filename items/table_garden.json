@@ -1,0 +1,12 @@
+{
+    "id": "table_garden",
+    "title": "Table .. ",
+    "price": 350.00,
+    "photos": [
+        "table_garden.jpg"
+    ],
+    "description": "",
+    "year": "09/2017", 
+    "avaliable_at": "now"
+    
+}
